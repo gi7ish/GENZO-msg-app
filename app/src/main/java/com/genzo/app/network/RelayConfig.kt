@@ -22,5 +22,5 @@ package com.genzo.app.network
  * host to res/xml/network_security_config.xml (see its comments).
  */
 object RelayConfig {
-    var baseUrl: String = "http://10.0.2.2:8765"
+    var baseUrl: String = "http://https://genzo-msg-app.onrender.com"
 }
