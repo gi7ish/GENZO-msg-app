@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Needed to reach the relay over HTTP(S). No other permissions requested:
+         no contacts, no storage, no location — consistent with the
+         data-minimization principle from the product brief. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".GenzoApplication"
+        android:allowBackup="false"
+        android:label="GENZO"
+        android:theme="@style/Theme.Genzo"
+        android:networkSecurityConfig="@xml/network_security_config">
+        <!-- See res/xml/network_security_config.xml: cleartext HTTP is
+             permitted ONLY to the local-dev relay hosts (emulator's 10.0.2.2
+             alias / localhost), not globally. Any other host must use TLS. -->
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Genzo">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
